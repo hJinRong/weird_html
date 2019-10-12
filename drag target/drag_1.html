@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>drag_1</title>
+    <style>
+        #dbox {
+            top: auto;
+            left: auto;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            display: block;
+            box-sizing: border-box;
+        }
+
+        #tbox {
+            width: 100px;
+            height: 100px;
+            display: block;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dbox" draggable="true"></div>
+
+    <div id="tbox" ondragover="return false"></div>
+
+
+    <script>
+        let mouseX, mouseY;
+
+        let dbox = document.getElementById("dbox");
+        let dboxInitX, dboxInitY;
+        let mousemoveListener;
+        let mouseupListener;
+        dbox.addEventListener("mousedown", function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dboxInitX = dbox.offsetLeft;
+            dboxInitY = dbox.offsetTop;
+            console.log("mousedown: ", mouseX, ",", mouseY, ",", dboxInitX, ",", dboxInitY);
+
+            mousemoveListener = document.addEventListener("mousemove", function (e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dbox.style.position = "absolute";
+                dbox.style.top = mouseY + "px";
+                dbox.style.left = mouseX + "px";
+            }, false);
+
+            mouseupListener = dbox.addEventListener("mouseup", function (e) {
+                mousemoveListener = null;
+                mouseupListener = null;
+            }, false);
+
+        }, false);
+    </script>
+</body>
+
+</html>
