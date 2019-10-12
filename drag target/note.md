@@ -13,4 +13,14 @@
 
 ## drag_3.html
 
-这个实验的效果比第一次好多了，效果很好。
+这个例子的效果比第一次好多了，效果很好。这个例子好像在Stackoverflow内看到过。
+
+补充点东西：这个例子并没有为 div 设置``draggable``属性 ,而是采用设置``class="draggable"``，另外这个匿名函数里面声名了一个 Object 对象，然后给 Object 赋予一个 addlistener 属性来挂上匿名函数，而且该匿名函数是个“立刻执行函数”，立刻执行之后返回一个 dragdrop，也就是前面定义的 Object 对象！然后通过``DragDrop.addlistener();`` 这一句来执行添加监听器的步骤。
+
+这样写的好处是不用再为每一个具体的而且有``class="draggable"``的 div 添加监听器！
+
+进一步修改可以更加抽象化，那样就可以达到复用的目的了。
+
+## DragDrop.js
+
+这是一个可以复用的Javascript文件。
