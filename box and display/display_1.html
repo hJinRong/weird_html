@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>display_1</title>
+
+    <style>
+        div.outer {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        div.inner {
+            width: 170px;
+            height: 70px;
+            background-color: indigo;
+        }
+
+        .isBlock {
+            display: block;
+        }
+
+        .isInline {
+            display: inline;
+        }
+
+        .isGrid {
+            display: grid;
+
+        }
+
+        .isContents {
+            display: contents;
+        }
+
+        .isFlex {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer isBlock">
+        <div class="inner"></div>
+    </div>
+    <br>
+    <div class="outer isInline">
+        <div class="inner"></div>
+    </div>
+    <br>
+    <div class="outer isGrid">
+        <div class="inner"></div>
+    </div>
+    <br>
+
+    <!-- display:contents; 的元素节点会在可访问树中被删除 -->
+    <div class="outer isContents">
+        <div class="inner"></div>
+    </div>
+    <br>
+    <div class="outer isFlex">
+        <div class="inner"></div>
+        <!-- <div class="inner_2" style="width: 30px;background-color: indianred;"></div> -->
+    </div>
+    <br>
+</body>
+
+</html>
