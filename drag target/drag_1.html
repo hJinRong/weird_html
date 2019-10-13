@@ -53,11 +53,16 @@
             }, false);
 
             //无法触发
-            mouseupListener = dbox.addEventListener("mouseup", function (e) {
-                mousemoveListener = null;
-                mouseupListener = null;
-            }, false);
 
+
+        }, false);
+
+        mouseupListener = dbox.addEventListener("mouseup", function (e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dbox.style.position = "absolute";
+            dbox.style.top = mouseY + "px";
+            dbox.style.left = mouseX + "px";
         }, false);
     </script>
 </body>
