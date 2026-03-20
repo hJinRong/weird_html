@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/hJinRong/weird_html#readme",
   "devDependencies": {
-    "eslint": "^6.5.1"
+    "eslint": "^10.1.0"
   }
 }
